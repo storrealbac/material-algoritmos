@@ -49,7 +49,6 @@ material-algoritmos/
 - **Typst** (sistema de composición tipográfica)
 - **wget** o **curl** (para descargar fuentes)
 - **unzip** (para extraer fuentes)
-- **inotify-tools** (opcional, para modo watch)
 
 ### Instalación de Typst
 
@@ -132,11 +131,6 @@ Verifica que Typst esté instalado:
 typst --version
 ```
 
-### Modo watch no funciona
-Instala inotify-tools:
-```bash
-sudo apt install inotify-tools
-```
 
 ## 📄 Licencia
 
