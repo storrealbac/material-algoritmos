@@ -14,8 +14,9 @@ jobs:
       
     - name: Install Typst
       run: |
-        curl -fsSL https://typst.community/typst-install/install.sh | sh
-        echo "$HOME/.local/bin" >> $GITHUB_PATH
+        sudo apt update
+        sudo apt install -y cargo
+        cargo install typst-cli
         
     - name: Install dependencies
       run: |
