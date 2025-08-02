@@ -54,3 +54,6 @@ target/
 
 # Cache de fuentes (si se genera)
 .fontcache
+
+# Claude Code
+.claude
