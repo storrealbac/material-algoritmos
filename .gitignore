@@ -1,0 +1,56 @@
+# Archivos compilados
+*.pdf
+
+# Directorio de salida
+output/
+dist/
+
+# Archivos temporales de Typst
+*.tmp
+*.temp
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+*.out
+
+# Cache y archivos temporales
+.cache/
+.tmp/
+tmp/
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# IDE y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Node modules (si se usa alguna herramienta JS)
+node_modules/
+
+# Archivos de configuración local
+.env
+.env.local
+config.local.*
+
+# Archivos de construcción
+build/
+target/
+
+# Archivos comprimidos temporales
+*.zip
+*.tar.gz
+*.rar
+
+# Cache de fuentes (si se genera)
+.fontcache
