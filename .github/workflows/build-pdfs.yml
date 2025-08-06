@@ -1,4 +1,4 @@
-name: Build PDFs
+name: Build PDFs and Create Release
 
 on:
   push:
@@ -11,7 +11,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
       
+    - name: Generate version number
+      id: version
+      run: |
+        VERSION=$(git rev-list --count HEAD)
+        echo "version=v$VERSION" >> $GITHUB_OUTPUT
+        echo "Generated version: v$VERSION"
+        
     - name: Install Typst
       run: |
         sudo apt update
@@ -31,6 +40,22 @@ jobs:
     - name: Upload PDF artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: compiled-pdfs
+        name: compiled-pdfs-${{ steps.version.outputs.version }}
         path: output/*.pdf
         retention-days: 30
+        
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.version }}
+        name: Release ${{ steps.version.outputs.version }}
+        body: |
+          Compilación automática de PDFs - Versión ${{ steps.version.outputs.version }}
+          
+          Commit: ${{ github.sha }}
+          Fecha: ${{ github.event.head_commit.timestamp }}
+        files: output/*.pdf
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
