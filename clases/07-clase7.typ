@@ -69,7 +69,7 @@
 
   Sea $G = (V, E)$. Un árbol de expansión (spanning tree) de $G$ es un grafo $(V, T)$ tal que $(V, T)$ es un árbol.
 
-  - PVamos a identificar un arbol de expansión con un conjunto $T$
+  - Vamos a identificar un arbol de expansión con un conjunto $T$
 
 
   Supongamos que cada arista $(u, v) in E$ asignado con un costo $c(u, v)$.
